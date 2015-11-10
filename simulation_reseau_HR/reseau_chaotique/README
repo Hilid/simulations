@@ -1,0 +1,37 @@
+code developpé par Thomas Lechat
+email: thomalechat@hotmail.fr
+codes sous GNU General Public License
+
+Qu'est ce que c'est que ça?
+----------------------------
+Ces codes permettent de simuler la propagation acoustique dans un réseau chaotique
+de résonateurs de Helmhotlz en dérivation sur un guide d'onde acoustique.
+Les géometries des résonateurs aussi bien que du guide d'onde peuvent être entièrement renseignés,
+des changements de section du guide d'onde sont donc possibles.
+
+Le programme calcul la matrice de transfert équivalente pression-vitesse du réseau puis en déduit les
+coefficient de transmission, reflexion et d'absorption à l'entrée du réseau.
+
+
+Domaine de validité de la simulation
+------------------------------------
+L'étude est valable en dessous de la première fréquence de coupure du guide d'onde: on 
+considère donc que seul des ondes planes se propagent dans le réseau.
+
+
+Comment ça marche?
+------------------
+
++ remplir le fichier data.txt avec les parametres du réseau
+
++ renseigner les parametres dans parametres.txt
+
++ lancer corrections_longueur.m pour generer un fichier data_out.txt
+
++ lancer calcul_MRTA.m, le résultat est stocké dans data_out.txt
+
+Le fichier data_out.txt contient alors la matrice de transfert du réseau pour chaques féquences
+de l'analyse, l'axe fréquentiel ainsi que les coefficients de reflexions, transmission et absorption.
+
+Pour visualiser ces résultats, le programme post_traitement.m peut être utilisés. celui-ci trace le
+module des coefficients en fonction de la fréquence.
